@@ -19,7 +19,7 @@ class CashOverloaded {
         }
 
         private function constrRubDate(float $rub, DateTime $dm) {
-                echo "constrRub float!\n";
+                echo "constrRub float + date!\n";
                 $this->__construct($rub);
         }
 
