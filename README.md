@@ -2,6 +2,7 @@
 
 Constructor overload PHP methods, like in Java or C++
 
+For PHP > 7
 
 Example:
 
@@ -31,7 +32,7 @@ class CashOverloaded {
         }
 
         public function __construct() {
-                $method = (new OverloadedConstructor($this, func_get_args()))->construct()->getName();
+                $method = (new OverloadedConstructor($this, func_get_args()))->construct();
                 echo "Method: $method!\n";
                 $this->$method(...func_get_args());
         }
