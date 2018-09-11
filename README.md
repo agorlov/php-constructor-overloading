@@ -61,6 +61,17 @@ new CashOverloaded(true);
 
 ```                          
 
+## Valid scalar hints
+
+- array
+- callable
+- bool	**not boolean!**
+- float	**not double!**
+- int	**not integer!**
+- string	
+- iterable
+- object
+
 ## Run tests
 
 ```bash

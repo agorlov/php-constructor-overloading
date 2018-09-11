@@ -64,19 +64,22 @@ final class OverloadedConstructor
                 continue;
             }
 
-            if (gettype($this->args[$i]) == 'boolean' && $param->getType() == 'boolean') {
-                continue;
-            }
-
             if (gettype($this->args[$i]) == 'boolean' && $param->getType() == 'bool') {
                 continue;
             }
 
-
-
-            if (gettype($this->args[$i]) == 'object' && $param->getType() == 'callable' && is_callable($this->args[$i])) {
+            if (gettype($this->args[$i]) == 'object' &&
+                $param->getType() == 'callable' &&
+                is_callable($this->args[$i])) {
                 continue;
             }
+
+            if (gettype($this->args[$i]) == 'object' &&
+                $param->getType() == 'iterable' &&
+                $this->args[$i] instanceof \Traversable) {
+                continue;
+            }
+
 
             if (gettype($this->args[$i]) == 'object') {
                 $type = (string)$param->getType();

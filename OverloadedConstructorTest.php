@@ -109,7 +109,7 @@ final class OverloadedConstructorTest extends TestCase
     public function testConstructArrayNotBoolean()
     {
         $obj = new class {
-            private function constrBoolean(boolean $a) {}
+            private function constrBoolean(bool $a) {}
             private function constrArray(array $c) {}
             public function __construct() {}
         };
@@ -146,6 +146,36 @@ final class OverloadedConstructorTest extends TestCase
         $this->assertEquals(
             'constrCallable',
             (new OverloadedConstructor($obj, [ function() {} ]))->constructor()
+        );
+    }
+
+
+    public function testConstructArrayNotIterable()
+    {
+        $obj = new class {
+            private function constrIterable(iterable $a) {}
+            private function constrArray(array $c) {}
+            public function __construct() {}
+        };
+
+        $this->assertEquals(
+            'constrArray',
+            (new OverloadedConstructor($obj, [ [ 'arr' ] ]))->constructor()
+        );
+    }
+
+    public function testConstructIterableNotArray()
+    {
+        $obj = new class {
+            private function constrIterable(iterable $a) {}
+            private function constrArray(array $c) {}
+            public function __construct() {}
+        };
+
+        $g = function() { yield 1; };
+        $this->assertEquals(
+            'constrIterable',
+            (new OverloadedConstructor($obj, [ $g() ]))->constructor()
         );
     }
 }
