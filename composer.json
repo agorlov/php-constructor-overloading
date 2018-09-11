@@ -1,0 +1,23 @@
+{
+  "name": "agorlov/php-constructor-overloading",
+  "description": "Multiple constructors in PHP",
+  "authors": [
+    {
+      "name": "Alexandr Gorlov",
+      "email": "a.gorlov@gmail.com"
+    }
+  ],
+  "keywords": ["php", "library","class", "overloading", "multiple", "constructors"],
+  "type": "library",
+  "homepage": "https://github.com/agorlov/php-constructor-overloading",
+  "license": "MIT",
+  "autoload": {
+    "classmap": [ "OverloadedConstructor.php" ]
+  },
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  }
+}

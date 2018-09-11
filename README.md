@@ -7,41 +7,56 @@ For PHP > 7
 Example:
 
 ```php
-class CashOverloaded {
-        private $kop;
+use AG\OverloadedConstructor;
 
-        private function constrRubB(boolean $rub) {
-                echo "constrRub boolean!\n";
-        }
+class DM extends DateTime
+{
+}
 
-        private function constrRubD(double $rub, integer $kop) {
-                echo "constrRub float!\n";
-        }
+class CashOverloaded
+{
+    private $kop;
 
-        private function constrRubDate(float $rub, DateTime $dm) {
-                echo "constrRub float + date!\n";
-                $this->__construct($rub);
-        }
+    private function constrRubB(bool $rub)
+    {
+        echo "constrRub boolean!\n";
+    }
 
-        private function constrRub(float $rub) {
-                echo "constrRub float!\n";
-        }
+    private function constrRubD(double $rub, integer $kop)
+    {
+        echo "constrRub float!\n";
+    }
 
-        private function constrPrimary(int $kop) {
-                echo "constrPrimary int!\n";
-        }
+    private function constrRubDate(float $rub, DateTime $dm)
+    {
+        echo "constrRub float!\n";
+        $this->__construct($rub);
+    }
 
-        public function __construct() {
-                $method = (new OverloadedConstructor($this, func_get_args()))->construct();
-                echo "Method: $method!\n";
-                $this->$method(...func_get_args());
-        }
+    private function constrRub(float $rub)
+    {
+        echo "constrRub float!\n";
+    }
 
-        public function money(): string {
-        }
+    private function constrPrimary(int $kop)
+    {
+        echo "constrPrimary int!\n";
+    }
+
+    public function __construct()
+    {
+        $method = (new OverloadedConstructor($this, func_get_args()))->constructor();
+        echo "Method: $method!\n";
+        $this->$method(...func_get_args());
+    }
+
+    public function money(): string
+    {
+    }
 }
 
 
 //new CashOverloaded(1.1, new DM);
 new CashOverloaded(true);
+
 ```                          
