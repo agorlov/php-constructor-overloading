@@ -61,8 +61,9 @@ new CashOverloaded(true);
 
 ```                          
 
-## Test run
+## Run tests
 
 ```bash
+$ composer install
 $ vendor/bin/phpunit OverloadedConstructorTest.php
 ```
