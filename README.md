@@ -60,3 +60,9 @@ class CashOverloaded
 new CashOverloaded(true);
 
 ```                          
+
+## Test run
+
+```bash
+$ vendor/bin/phpunit OverloadedConstructorTest.php
+```
