@@ -56,65 +56,8 @@ var_dump(new Cash());
 - iterable
 - object
 
-## Simple cases of using multiple constructors
 
-### Sample 1: int or string (city id or city code)
-
-```php
-class City {
-  private $id;
-  /**
-   * @param $sityCode (id numeric; or string code of city)
-   */
-  public function __construct($cityCode) {
-    if (is_numeric($cityCode)) {
-      $this->id = function() use ($cityCode) { return $cityCode; };
-    } elseif (is_string($cityCode)) {
-      // constructor shuld be light, all real processing later
-      $this->id = function() use ($cityCode) { 
-        // resolve id by $cityCode
-        // SELECT id FROM city WHERE code=[cityCode]
-        return $cityCode; 
-      };
-    } else {
-      throw new Exception("\$cityCode must be numeric or string");
-    }
-  }
-  
-  // Methods of City
-  // ...
-  public function info(): array {
-    $id = $this->id->call($this); 
-  }
-}
-
-### Sample 2: int or string (city id or city code)
-
-```php
-class City {
-  private $id;
-  /**
-   * @param $sityCode (string; or object)
-   */
-  public function __construct($param) {
-    if (is_string($param)) {
-      $this->id = function() use ($cityCode) { return $cityCode; };
-    } elseif (is_string($cityCode)) {
-      $this->id = function() use ($cityCode) { 
-        // resolve id by $cityCode
-        // SELECT id FROM city WHERE code=[cityCode]
-        return $cityCode; 
-      };
-    } else {
-      throw new Exception("\$cityCode must be numeric or string");
-    }
-  }
-  
-  // Methods of City
-  // ...
-}
-
-## Run tests
+## Tests
 
 ```bash
 $ composer install
