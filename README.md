@@ -8,7 +8,14 @@ https://www.yegor256.com/2015/05/28/one-primary-constructor.html
 
 For PHP > 7
 
-**Example:**
+## How to install
+
+```bash
+$ composer require agorlov/php-constructor-overloading
+```
+
+
+## Usage example
 
 ```php
 use AG\OverloadedConstructor;
