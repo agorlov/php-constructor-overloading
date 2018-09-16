@@ -8,7 +8,7 @@ https://www.yegor256.com/2015/05/28/one-primary-constructor.html
 
 For PHP > 7
 
-Example:
+**Example:**
 
 ```php
 use AG\OverloadedConstructor;
