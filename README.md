@@ -27,7 +27,7 @@ final class Cash {
     $this->__construct($cts, "USD");
   }
   
-  public function constrPrimary(int $cts, string $crn) { // primary
+  private function constrPrimary(int $cts, string $crn) { // primary
     $this->cents = $cts;
     $this->currency = $crn;
   }
