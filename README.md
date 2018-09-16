@@ -41,9 +41,6 @@ final class Cash {
   // methods here
 }
 
-
-
-//new CashOverloaded(1.1, new DM);
 var_dump(new Cash());
 ```                          
 
