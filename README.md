@@ -2,7 +2,8 @@
 
 Constructor overload PHP methods, like in Java or C++
 
-Based on articles (how to adopt this technics from Java to PHP):
+Based on article (how to adopt this technic from Java to PHP):
+
 https://www.yegor256.com/2015/05/28/one-primary-constructor.html
 
 For PHP > 7
