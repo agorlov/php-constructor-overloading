@@ -100,7 +100,7 @@ final class OverloadedConstructor
     private function constructors(): array
     {
         return array_filter(
-            (new ReflectionObject($this->obj))->getMethods(ReflectionMethod::IS_PRIVATE),
+            (new ReflectionObject($this->obj))->getMethods(),
             function ($method) {
                 return strpos($method->name, 'constr') !== false;
             }
