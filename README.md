@@ -43,7 +43,9 @@ final class Cash {
 }
 
 var_dump(new Cash());
-```                          
+```                  
+
+more examples: in ``example.php`` and ``example2.php``
 
 ## Valid scalar hints
 
